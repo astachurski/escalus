@@ -14,8 +14,9 @@
 %% limitations under the License.
 %%==============================================================================
 
-rtrtr.
+
 -module(escalus_stanza).
+
 
 %% old ones
 -export([id/0,
@@ -24,6 +25,7 @@ rtrtr.
          chat_to_short_jid/2,
          chat_without_carbon_to/2,
          groupchat_to/2,
+	 dupa/0,
          iq_result/1,
          iq_get/2,
          iq_set/2,
@@ -229,6 +231,10 @@ setattr(Stanza, Key, Val) ->
 tags(KVs) ->
     [#xmlel{name = K,
             children = [exml:escape_cdata(V)]} || {K, V} <- KVs].
+
+dupa() ->
+    #xmlel{name = <<"dupazbita">>, children = []}.
+
 
 presence(Type) ->
     presence(Type, []).
